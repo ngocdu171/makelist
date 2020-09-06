@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import Search from './Search';
 
 class  Sort extends Component {
     render(){
@@ -10,11 +9,11 @@ class  Sort extends Component {
                     Sort by <span className="caret" />
                     </button>
                     <ul className="dropdown-menu" aria-labelledby="dropdownMenu1">
-                        <li><a role="button" href="#">Name ASC</a></li>
-                        <li><a role="button" href="#">Name DESC</a></li>
+                        <li><a role="button">Name ASC</a></li>
+                        <li><a role="button">Name DESC</a></li>
                         <li role="separator" className="divider" />
-                        <li><a role="button" href="#">level ASC</a></li>
-                        <li><a role="button" href="#">Level DESC</a></li>
+                        <li><a role="button">level ASC</a></li>
+                        <li><a role="button">Level DESC</a></li>
                     </ul>
                     <span className="label label-success label-medium">NAME - DESC</span>
                 </div>

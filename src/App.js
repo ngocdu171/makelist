@@ -8,8 +8,27 @@ import Control from './components/Control';
 class App extends Component {
     constructor(props) {
         super(props);
+
+        this.state = {
+            items: [
+                {
+                    name: "Abc",
+                    level: 0 // Small
+                },
+                {
+                    name: "Def",
+                    level: 1 // Medium
+                },
+                {
+                    name: "Ghj",
+                    level: 2 // High
+                }
+            ]
+        }
     }
     render() {
+        // console.log(this.state.items);
+        let items = this.state.items;
         return (
             <div>
                 {/* TITLE */}
@@ -19,7 +38,7 @@ class App extends Component {
                 {/* FORM */}
                 <Form/>
                 {/* LIST TASK (ITEM) */}
-                <List/>
+                <List items={items}/>
             </div>
         );
     }
