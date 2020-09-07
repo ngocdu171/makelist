@@ -1,12 +1,32 @@
 import React, { Component } from 'react'
 
 class  Item extends Component {
+    showElementLevel(level){
+        let a = <span className="label label-default">Small</span>;
+        if (level === 2){
+            a = <span className="label label-danger">High</span>;
+        }
+        else if (level === 1){
+            a = <span className="label label-info">Medium</span>;
+        }
+        return a;
+    };
     render(){
+        // let item = this.props.item;
+        let {item} = this.props; // instead of let item = this.props.item
+        let {index} = this.props;
+        // let a = <span className="label label-default">Small</span>;  //above we write function
+        // if (item.level === 2){
+        //     a = <span className="label label-danger">High</span>;
+        // }
+        // else if (item.level === 1){
+        //     a = <span className="label label-info">Medium</span>;
+        // }                                                            //above we write function
         return (
             <tr>
-                <td className="text-center">1</td>
-                <td>khong biet ghi gi nua</td>
-                <td className="text-center"><span className="label label-danger">High</span></td>
+                <td className="text-center">{index + 1}</td>
+                <td>{item.name}</td>
+                <td className="text-center">{this.showElementLevel(item.level)}</td>
                 <td>
                     <button type="button" className="btn btn-warning">Edit</button>
                     <button type="button" className="btn btn-danger">Delete</button>
