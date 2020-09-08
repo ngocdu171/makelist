@@ -11,19 +11,32 @@ class App extends Component {
         super(props);
 
         this.state = {
-            items: items
+            items: items,
+            isShowForm: true
         }
+        this.handleToggleForm = this.handleToggleForm.bind(this);
     }
+
+    handleToggleForm(){
+        this.setState({
+            isShowForm: !this.state.isShowForm
+        });
+    }
+
     render() {
         let items = this.state.items;
+        let eleForm = null;
+        if(this.state.isShowForm === true){
+            eleForm = <Form/>;
+        }
         return (
             <div>
                 {/* TITLE */}
                 <Title/>
                 {/*CONTROL(SEARCH + SORT + ADD TASK) */}
-                <Control/>
+                <Control onclickAdd={this.handleToggleForm}/>
                 {/* FORM */}
-                <Form/>
+                {eleForm}
                 {/* LIST TASK (ITEM) */}
                 <List items={items} />
             </div>
