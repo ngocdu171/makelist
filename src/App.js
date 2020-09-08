@@ -12,7 +12,7 @@ class App extends Component {
 
         this.state = {
             items: items,
-            isShowForm: true
+            isShowForm: false
         }
         this.handleToggleForm = this.handleToggleForm.bind(this);
     }
@@ -34,7 +34,8 @@ class App extends Component {
                 {/* TITLE */}
                 <Title/>
                 {/*CONTROL(SEARCH + SORT + ADD TASK) */}
-                <Control onclickAdd={this.handleToggleForm}/>
+                <Control onclickAdd={this.handleToggleForm}
+                        isShowForm={this.state.isShowForm}/>
                 {/* FORM */}
                 {eleForm}
                 {/* LIST TASK (ITEM) */}
