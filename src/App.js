@@ -15,6 +15,7 @@ class App extends Component {
             isShowForm: false
         }
         this.handleToggleForm = this.handleToggleForm.bind(this);
+        this.closeForm = this.closeForm.bind(this);
     }
 
     handleToggleForm(){
@@ -23,11 +24,17 @@ class App extends Component {
         });
     }
 
+    closeForm(){
+        this.setState({
+            isShowForm: false
+        });
+    }
+
     render() {
         let items = this.state.items;
         let eleForm = null;
         if(this.state.isShowForm === true){
-            eleForm = <Form/>;
+            eleForm = <Form onClickCancel={this.closeForm}/>;
         }
         return (
             <div>
