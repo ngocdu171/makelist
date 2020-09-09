@@ -13,7 +13,6 @@ class  Control extends Component {
     }
 
     render(){
-        console.log(this.props.isShowForm);
         let Elebutton = <button onClick={this.handleAdd} type="button" className="btn btn-block btn-info">Add Task</button>
         if (this.props.isShowForm === true) {
             Elebutton = <button onClick={this.handleAdd} type="button" className="btn btn-block btn-success">Close Task</button>
@@ -21,7 +20,7 @@ class  Control extends Component {
         return (
             <div className="row">
                 {/* SEARCH */}
-                <Search/>
+                <Search tam ={this.props.onclickSearchGo}/>
                 {/* SORT */}
                 <Sort/>
                 {/* ADD TASK */}
