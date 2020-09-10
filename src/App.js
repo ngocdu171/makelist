@@ -4,7 +4,8 @@ import Title from './components/Title';
 import Form from './components/Form';
 import List from './components/List';
 import Control from './components/Control';
-import items from './mocks/Task'
+import items from './mocks/Task';
+import {filter, includes} from 'lodash';
 
 class App extends Component {
     constructor(props) {
@@ -44,17 +45,21 @@ class App extends Component {
         let eleForm = null;
         const search = this.state.strSearch;
 
-        if(search.length > 0){
-            itemsOrigin.forEach((item) =>{
-                if(item.name.toLowerCase().indexOf(search) !== -1){
-                    items.push(item);
-                }
-            });
-        }
+        items = filter(itemsOrigin, (item) => {
+            return includes(item.name, search);
+        });
 
-        else{
-            items = itemsOrigin;
-        }
+        // if(search.length > 0){
+        //     itemsOrigin.forEach((item) =>{
+        //         if(item.name.toLowerCase().indexOf(search) !== -1){
+        //             items.push(item);
+        //         }
+        //     });
+        // }
+
+        // else{
+        //     items = itemsOrigin;
+        // }
 
         if(this.state.isShowForm === true){
             eleForm = <Form onClickCancel={this.closeForm}/>;
