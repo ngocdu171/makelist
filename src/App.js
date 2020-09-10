@@ -39,9 +39,23 @@ class App extends Component {
     }
 
     render() {
-        console.log(this.state.strSearch);
-        let items = this.state.items;
+        let itemsOrigin = this.state.items;
+        let items = [];
         let eleForm = null;
+        const search = this.state.strSearch;
+
+        if(search.length > 0){
+            itemsOrigin.forEach((item) =>{
+                if(item.name.toLowerCase().indexOf(search) !== -1){
+                    items.push(item);
+                }
+            });
+        }
+
+        else{
+            items = itemsOrigin;
+        }
+
         if(this.state.isShowForm === true){
             eleForm = <Form onClickCancel={this.closeForm}/>;
         }
