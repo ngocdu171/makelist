@@ -14,11 +14,11 @@ class  Search extends Component {
 
     handleSearch(){
         // alert(this.state.strSearch); //read strSearch
-        this.props.tam(this.state.strSearch);
+        this.props.onclickGo(this.state.strSearch);
     }
     handleClear(){
         this.setState({strSearch:''});
-        this.props.tam('');
+        this.props.onclickGo('');
     }
     handleChange(event){
         this.setState({strSearch: event.target.value}); //update strSearch by value of input text
