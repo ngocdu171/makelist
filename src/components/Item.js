@@ -1,6 +1,13 @@
 import React, { Component } from 'react'
 
 class  Item extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            //
+        };
+        this.handleDelete = this.handleDelete.bind(this);
+    }
     showElementLevel(level){
         let a = <span className="label label-default">Small</span>;
         if (level === 2){
@@ -11,6 +18,11 @@ class  Item extends Component {
         }
         return a;
     };
+
+    handleDelete(id){
+        this.props.onclickDelete(id);
+    }
+
     render(){
         // let item = this.props.item;
         let {item} = this.props; // instead of let item = this.props.item
@@ -29,7 +41,7 @@ class  Item extends Component {
                 <td className="text-center">{this.showElementLevel(item.level)}</td>
                 <td>
                     <button type="button" className="btn btn-warning">Edit</button>
-                    <button type="button" className="btn btn-danger">Delete</button>
+                    <button onClick={()=>this.handleDelete(item.id)} type="button" className="btn btn-danger">Delete</button>
                 </td>
             </tr>
         );
