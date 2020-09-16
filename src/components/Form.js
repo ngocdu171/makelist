@@ -28,7 +28,7 @@ class  Form extends Component {
     UNSAFE_componentWillReceiveProps(nextProps){
         let item = nextProps.itemselected;
         console.log(nextProps);
-        if(nextProps !== null) {
+        if(item !== null) {
             this.setState({
                 id: item.id,
                 taskname: item.name,
