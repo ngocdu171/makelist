@@ -7,6 +7,7 @@ class  Item extends Component {
             //
         };
         this.handleDelete = this.handleDelete.bind(this);
+        this.handleEdit = this.handleEdit.bind(this);
     }
     showElementLevel(level){
         let a = <span className="label label-default">Small</span>;
@@ -19,8 +20,12 @@ class  Item extends Component {
         return a;
     };
 
-    handleDelete(id){
-        this.props.onclickDelete(id);
+    handleEdit(item){
+        this.props.onclickEdit(item);
+    }
+
+    handleDelete(item){
+        this.props.onclickDelete(item);
     }
 
     render(){
@@ -40,7 +45,7 @@ class  Item extends Component {
                 <td>{item.name}</td>
                 <td className="text-center">{this.showElementLevel(item.level)}</td>
                 <td>
-                    <button type="button" className="btn btn-warning">Edit</button>
+                    <button onClick={()=>this.handleEdit(item)} type="button" className="btn btn-warning">Edit</button>
                     <button onClick={()=>this.handleDelete(item.id)} type="button" className="btn btn-danger">Delete</button>
                 </td>
             </tr>

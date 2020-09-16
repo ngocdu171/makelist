@@ -4,13 +4,37 @@ class  Form extends Component {
 
     constructor(props){
         super(props);
-        this.handleCancle = this.handleCancle.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-        this.handleChange = this.handleChange.bind(this);
         this.state = {
+            id: '',
             taskname: '',
             level: 0
         };
+        this.handleCancle = this.handleCancle.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleChange = this.handleChange.bind(this);
+    }
+
+    UNSAFE_componentWillMount(){
+        let item = this.props.itemselected;
+        if(item !== null) {
+            this.setState({
+                id: item.id,
+                taskname: item.name,
+                level: item.level
+            });
+        }
+    }
+
+    UNSAFE_componentWillReceiveProps(nextProps){
+        let item = nextProps.itemselected;
+        console.log(nextProps);
+        if(nextProps !== null) {
+            this.setState({
+                id: item.id,
+                taskname: item.name,
+                level: item.level
+            });
+        }
     }
 
     handleChange(event){
@@ -25,6 +49,7 @@ class  Form extends Component {
     handleSubmit(event){
         let item = {
             name: this.state.taskname,
+            id: this.state.id,
             level: this.state.level
         };
         this.props.onclickSubmit(item);

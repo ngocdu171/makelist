@@ -11,8 +11,9 @@ class  List extends Component {
     render(){
         const items = this.props.items;
         const EleItem = items.map((item,index) => {
-            return(<Item onclickDelete={this.props.onclickDelete}
-                     key={index} item={item} index={index} />);
+            return(<Item onclickEdit={this.props.onclickEdit}
+                        onclickDelete={this.props.onclickDelete}
+                        key={index} item={item} index={index} />);
         });
         return (
             <div className="panel panel-success">
